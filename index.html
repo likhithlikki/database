@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+   <div class="container">
+        <div class="card">
+            <div class="front">
+                <form id="signupForm" action="connect.php" method="post" onsubmit="submitForm('signupForm')">
+                    <legend>Signup</legend>
+                    <label>Username</label>&nbsp;&nbsp;&nbsp;
+                    <input type="text" placeholder="Username" id="username_s" name="u_s" required><br><br>
+                    <label>Password</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="password" placeholder="Password"  id="password_s" name="p_s"><br>
+                    <button type="submit" class="submit">Submit</button>
+                </form>
+                <label class="end">Already have an account</label>
+                <button type="button" onclick="rotateCard()" class="login">Login</button>
+            </div>
+            <div class="back">
+                <form id="loginForm" action="connect.php" method="post" onsubmit="submitForm('loginForm')">
+                    <legend>Login</legend>
+                    <label>Username</label>&nbsp;&nbsp;&nbsp;
+                    <input type="text" placeholder="Username" id="username_l" name="u_l" required><br><br>
+                    <label>Password</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="password" placeholder="Password" id="password_l" name="p_l"><br>
+                    <button type="submit" class="submit">Submit</button>
+                </form>
+                <label class="end">No account! Let's signup</label>
+                <button type="button" onclick="rotateCard()" class="signup">Signup</button>
+            </div>
+        </div>
+   </div>
+   <script>
+    function rotateCard() {
+        const card = document.querySelector('.card');
+        card.classList.toggle('rotate');
+    }
+
+    function submitForm(formId) {
+        event.preventDefault();
+
+        const form = document.getElementById(formId);
+        const formData = new FormData(form);
+        const u = formData.get("u_s") || formData.get("u_l");
+        const p = formData.get("p_s") || formData.get("p_l");
+
+        if (!u || !p) {
+            alert("Please fill all the details");
+        } else {
+            alert('Form submitted');
+            form.submit(); // Submit the form if all details are filled
+        }
+    }
+    </script>
+</body>
+</html>
