@@ -1,0 +1,86 @@
+body {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background-image:linear-gradient(to right,black,rgb(168, 60, 155), white);
+}
+
+.container {
+    perspective: 1000px;
+    width: 400px;
+    height: 350px;
+    position: relative;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1.5s;
+    box-shadow: 0 7px 15px 0 rgba(0, 0, 0, .13), 0 1px 4px 0 rgba(0, 0, 0, .11);
+}
+
+.card.rotate {
+    transform: rotateY(540deg);
+
+
+}
+
+.front, .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.front {
+    background-color: #155090;
+    color: white;
+    text-align: center; /* Center text horizontally */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.back {
+    background-color: #007bff;
+    color: white;
+    text-align: center; /* Center text horizontally */
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+legend{
+    font-size: 3rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    position: relative;
+    left: 1vw;
+    bottom: 4vh;
+}
+.signup, .login {
+    position: relative;
+    top: 2rem; /* Adjust the top position as needed */
+
+}
+.submit {
+    position: relative;
+    left: 0; /* Reset the left position */
+    top: 1rem; /* Adjust the top position as needed */
+    padding: 3px 4px;
+    margin: 3px;
+}
+
+/* Similarly, adjust the positions of other elements as needed */
+.end {
+    position: relative;
+    top: 2rem; /* Adjust the top position as needed */
+    padding: 3px 4px;
+    margin: 3px;
+}
